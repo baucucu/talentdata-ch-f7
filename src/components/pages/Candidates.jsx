@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import { Toggle, Icon, Link, Page, Card, CardTitle, CardHeader, CardFooter, CardContent ,Navbar, Block, BlockTitle, Row, Col} from 'framework7-react';
+import { Toggle, Icon, Link, Page, Card, CardHeader, CardFooter, CardContent ,Navbar, Block, BlockTitle, Row} from 'framework7-react';
 import axios from 'axios';
 
-export default function Candidates({ f7router, f7route }) {
+export default function Candidates({ f7route }) {
     
     const [syncToAirtable, setSyncToAirtable] = useState(true)
     const [candidates, setCandidates] = useState([])
@@ -69,7 +69,7 @@ const CandidateCard = (props) => {
             </CardHeader>
             <CardContent>
                 <p>Summary</p>
-                <img src={props.candidate["Picture URL"]} width="216px" alt="profile image"/>
+                <img src={props.candidate["Picture URL"]} width="216px" alt="profile"/>
                 <p className="likes">Candidate details</p>
             </CardContent>
             <CardFooter className="no-border">
