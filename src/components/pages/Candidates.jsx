@@ -28,14 +28,6 @@ export default function Candidates({ f7route }) {
         <BlockTitle>
             <b># Candidates: </b>{candidates.length}
         </BlockTitle>
-        <Block>
-            <Row>
-                <Block>
-                    <p>syncToAirtable</p>
-                    <Toggle checked={syncToAirtable} ></Toggle>
-                </Block>
-            </Row>
-        </Block>
 
         <Block>
             <Row>
@@ -69,7 +61,8 @@ const CandidateCard = (props) => {
             </CardHeader>
             <CardContent>
                 <p>Summary</p>
-                <img src={props.candidate["Picture URL"]} width="216px" alt="profile"/>
+                <Stars stars={props.candidate["Candidate Ranking"]}></Stars>
+                <img src={props.candidate["Photo-src"]} width="216px" alt="profile"/>
                 <p className="likes">Candidate details</p>
             </CardContent>
             <CardFooter className="no-border">
@@ -77,5 +70,16 @@ const CandidateCard = (props) => {
                 <Link>Action 2</Link>
             </CardFooter>
         </Card>
+    )
+}
+
+const Stars = (props) => {
+    let starsArray = new Array(props.stars)
+    return(
+        <Row>
+            {
+                starsArray.map(star => <Block>star</Block>)
+            }
+        </Row>
     )
 }
